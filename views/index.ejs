@@ -1,15 +1,27 @@
 <%- include('partials/_head.ejs'); %>
 
-    <section>
-        <h2>Please Sign In:</h2>
-        <form method="POST" action="/sign-in">
-            <label for="email-address-field">E-Mail:</label>
-            <input type="email" name="userEmail" id="email-address-field">
-            <label for="password-field">Password:</label>
-            <input type="password" name="userPass" id="password-field">
-            <input type="submit" value="Sign In">
-        </form>
-    </section>
-
+    <% if (currentUser) { %>
+        <section>
+            <h2>Hello, <%= currentUser.name %>!</h2>
+            <p>You have successfully signed in! Please view your information below:</p>
+            <dl>
+                <dt>ID</dt><dd><%= currentUser.id %></dd>
+                <dt>Name</dt><dd><%= currentUser.name %></dd>
+                <dt>E-Mail</dt><dd><%= currentUser.email %></dd>
+                <dt>Favourite Language</dt><dd><%= currentUser.favouriteLanguage %></dd>
+            </dl>
+        </section>
+    <% } else { %>
+        <section>
+            <h2>Please Sign In:</h2>
+            <form method="POST" action="/sign-in">
+                <label for="email-address-field">E-Mail:</label>
+                <input type="email" name="userEmail" id="email-address-field">
+                <label for="password-field">Password:</label>
+                <input type="password" name="userPass" id="password-field">
+                <input type="submit" value="Sign In">
+            </form>
+        </section>
+    <% } %>
 </body>
 </html>

@@ -36,7 +36,15 @@ const users = [
 
 // Home page.
 app.get('/', (req, res) => {
-    res.render('index');
+    if (typeof req.cookies.userId !== 'undefined') {
+        const userId = req.cookies.userId;
+        const currentUser = users.find((user) => {return user.id == userId});
+        if (currentUser) {
+            res.render('index', {currentUser});
+        }
+    }
+
+    res.render('index', {currentUser: false});
 });
 
 app.post('/sign-in', (req, res) => {
@@ -56,11 +64,11 @@ app.post('/sign-in', (req, res) => {
     if (currentUser) {
         console.log(`Sign in successful for user ${currentUser.id}: ${currentUser.name} (${currentUser.email})`);        
         res.cookie('userId', currentUser.id);
-        res.end('SUCCESS');
     } else {
         console.error(`Sign in UNSUCCESSFUL for attempted email: ${userEmail} and password: ${userPass}`);
-        res.end('FAILURE');
     }
+
+    res.redirect('/');
 });
 
 app.listen(port, () => {
