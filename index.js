@@ -71,6 +71,12 @@ app.post('/sign-in', (req, res) => {
     res.redirect('/');
 });
 
+// Handle sign-out.
+app.post('/sign-out', (req, res) => {
+    res.clearCookie('userId'); // Delete cookie by KEY.
+    res.redirect('/'); // Send the user to the index route.
+});
+
 app.listen(port, () => {
     console.log('Express server is running on port:', port);
 });
