@@ -1,0 +1,10 @@
+/* Set a custom font for the web pages. */
+* {
+    font-family: Arial, Helvetica, Ubuntu, sans-serif;
+}
+
+/* Custom colour and shadow for all headings. */
+h1, h2, h3, h4, h6 {
+    color: salmon;
+    text-shadow: 2px 2px 0 black;
+}
