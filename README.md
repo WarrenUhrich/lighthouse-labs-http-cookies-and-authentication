@@ -16,3 +16,8 @@
 ## What is a Cookie?
 
 A key-value pair-based information storage in our web browser(s) on a per-domain basis.
+
+## Routes Planning
+
+* `GET /` Home page / sign in form.
+* `POST /sign-in` Handle sign-in logic.
