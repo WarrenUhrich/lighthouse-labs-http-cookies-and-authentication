@@ -22,3 +22,5 @@ A key-value pair-based information storage in our web browser(s) on a per-domain
 * `GET /` Home page / sign in form.
 * `POST /sign-in` Handle sign-in logic.
 * `POST /sign-out` Handle sign-out logic.
+* `GET /register` Registration form.
+* `POST /register` Handle registration logic.

@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const fs = require('fs');
 
 const app = express();
 const port = 3000;
@@ -17,22 +18,7 @@ app.use(express.static('public')); // Any route that matches a file in /public w
 // Let express know we are using a template engine.
 app.set('view engine', 'ejs');
 
-const users = [
-    {
-        id: 1, 
-        email: 'hello@warren.codes', 
-        name: 'Warren', 
-        password: 'testing123',
-        favouriteLanguage: 'PHP'
-    },
-    {
-        id: 2, 
-        email: 'sneha@sneha.ca', 
-        name: 'Sneha', 
-        password: 'b3tterp4ss',
-        favouriteLanguage: 'Ladder Logic'
-    }
-];
+const users = require('./data/users.json');
 
 // Home page.
 app.get('/', (req, res) => {
@@ -68,6 +54,32 @@ app.post('/sign-in', (req, res) => {
         console.error(`Sign in UNSUCCESSFUL for attempted email: ${userEmail} and password: ${userPass}`);
     }
 
+    res.redirect('/');
+});
+
+app.get('/register', (req, res) => {
+    if (typeof req.cookies.userId !== 'undefined') res.redirect('/');
+    res.render('register');
+});
+
+app.post('/register', (req, res) => {
+    // Retrieve contents of submitted form fields:
+    const {userEmail, userPass, userName, userFavouriteLanguage} = req.body;
+    const newUserId = users.length + 1;
+    // Add data to users array:
+    users.push({
+        id: newUserId,
+        name: userName,
+        email: userEmail,
+        password: userPass,
+        favouriteLanguage: userFavouriteLanguage
+    });
+    fs.writeFile('./data/users.json', JSON.stringify(users), {encoding: 'utf-8'}, (error) => {
+        if (error) console.error(error);
+        else console.log('User registered:', users[newUserId]);
+    } );
+    // Sign the user in:
+    res.cookie('userId', newUserId);
     res.redirect('/');
 });
 
