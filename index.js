@@ -67,3 +67,8 @@ app.post('/', (req, res) => {
     console.log('User:', username, 'Password:', password);
     res.redirect('/');
 });
+
+app.post('/sign-out', (req, res) => {
+    res.clearCookie('userID'); // Destroy the cookie (by key)!
+    res.redirect('/');
+});

@@ -16,6 +16,12 @@
                     Register
                 </a>
             </li>
+        <% } else { %>
+            <li>
+                <form method="POST" action="/sign-out">
+                    <input type="submit" value="Sign Out">
+                </form>
+            </li>
         <% } %>
     </ul>
 </nav>
