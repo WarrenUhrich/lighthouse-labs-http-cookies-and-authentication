@@ -1,0 +1,21 @@
+<nav>
+    <h2>Web Site Navigation</h2>
+    <ul>
+        <li>
+            <a href="/">
+                <% if (user) { %>
+                    Profile
+                <% } else { %>
+                    Sign In
+                <% } %>
+            </a>
+        </li>
+        <% if (!user) { %>
+            <li>
+                <a href="/register">
+                    Register
+                </a>
+            </li>
+        <% } %>
+    </ul>
+</nav>
