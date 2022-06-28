@@ -31,10 +31,19 @@ app.get('/test', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-    const user = ;
+    const userID = req.cookies.userID;
+
+    let currentUser = false;
+
+    for (const user of users) {
+        if (userID == user.id) {
+            currentUser = user;
+        }
+    }
 
     const templateVars = {
         pageName: 'Sign In',
+        user: currentUser
     };
     res.render('index', templateVars);
 });
