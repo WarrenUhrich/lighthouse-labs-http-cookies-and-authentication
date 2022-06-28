@@ -14,6 +14,11 @@ app.listen(PORT, () => {
     console.log('Express server running on port:', PORT);
 });
 
-app.get('/', (req, res) => {
-    res.end('Hello, World!');
+// Cookie read and write test.
+app.get('/test', (req, res) => {
+    // Writing a cookie (key, value).
+    res.cookie('test cookie', 'This is a test!');
+    // Reading a cookie from the req.cookies object.
+    console.log('Cookie Received on Back-end:', req.cookies['test cookie']);
+    res.end('<html><head><title>test</title></head><body>test</body></html>');
 });
