@@ -15,6 +15,11 @@ app.listen(PORT, () => {
     console.log('Express server running on port:', PORT);
 });
 
+const users = [
+    {id: 1, name: 'Harinder', pass: 'Password123'},
+    {id: 2, name: 'Hope', pass: 'b3tt3rp4ss'},
+];
+
 // Cookie read and write test.
 app.get('/test', (req, res) => {
     // Reading a cookie from the req.cookies object.
@@ -26,8 +31,30 @@ app.get('/test', (req, res) => {
 });
 
 app.get('/', (req, res) => {
+    const user = ;
+
     const templateVars = {
         pageName: 'Sign In',
     };
     res.render('index', templateVars);
+});
+
+app.post('/', (req, res) => {
+    const username = req.body.username;
+    const password = req.body.pass;
+
+    let currentUser = false;
+
+    for (const user of users) {
+        if (user.name == username && user.pass == password) {
+            currentUser = user;
+        }
+    }
+
+    if (currentUser) {
+        res.cookie('userID', currentUser.id);
+    }
+
+    console.log('User:', username, 'Password:', password);
+    res.redirect('/');
 });
