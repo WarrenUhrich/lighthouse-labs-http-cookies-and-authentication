@@ -68,6 +68,42 @@ app.post('/', (req, res) => {
     res.redirect('/');
 });
 
+// Display the form.
+app.get('/register', (req, res) => {
+
+    const templateVars = {
+        pageName: 'Register',
+        user: false
+    };
+    res.render('register', templateVars);
+});
+
+// Handle form submission.
+app.post('/register', (req, res) => {
+    const username = req.body.username;
+    const password = req.body.pass;
+
+    console.log('Username:', username, 'Password:', password);
+
+    const newID = users.length + 1; // Next ID (just add one.)
+
+    // Real world... check if username already exists...
+    // Real world... generate more unique ID, careful!! etc.
+
+    // Creating and adding the new user.
+    users.push({
+        id: newID,
+        name: username,
+        pass: password
+    });
+
+    // Sign the user in.
+    res.cookie('userID', newID);
+
+    // Send'em home!
+    res.redirect('/');
+});
+
 app.post('/sign-out', (req, res) => {
     res.clearCookie('userID'); // Destroy the cookie (by key)!
     res.redirect('/');
