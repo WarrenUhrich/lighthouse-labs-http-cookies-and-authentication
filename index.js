@@ -43,11 +43,14 @@ app.listen(PORT, () => {
 app.get('/', (req, res) => {
   console.log('cookies:', req.cookies);
 
+  // READ cookies...
   console.log('my-first-cookie:', req.cookies['my-first-cookie']);
   console.log('mySecondCookie:', req.cookies.mySecondCookie);
 
+  // WRITE cookies...
   res.cookie('my-first-cookie', '123');
-  res.cookie('mySecondCookie', 'Testing, 1 2 3!')
+  res.cookie('mySecondCookie', 'Testing, 1 2 3!');
+  
   res.render('index');
 });
 
@@ -60,7 +63,9 @@ app.get('/sign-in', (req, res) => {
 app.post('/sign-in', (req, res) => {
   console.log('req.body', req.body);
 
+  // Loop through all users in "Database."
   for(const userId in users) {
+    // Check if e-mail AND password match a user.
     if (users[userId].email === req.body.email && users[userId].password === req.body.pass) {
       res.cookie('userId', userId);
       res.redirect('/hidden-page');
@@ -71,12 +76,17 @@ app.post('/sign-in', (req, res) => {
 });
 
 app.get('/hidden-page', (req, res) => {
+  // Check if the UserID is set, and if it is a real user.
   if(req.cookies.userId && users[req.cookies.userId]) {
     const templateVars = {
-      email: users[req.cookies.userId].email
+      email: users[req.cookies.userId].email // "email" will be avail. in template.
     };
-
     res.render('hidden-page', templateVars);
   }
   res.redirect('sign-in');
+});
+
+app.post('/sign-out', (req, res) => {
+  res.clearCookie('userId'); // Tell the browser to delete this cookie.
+  res.redirect('/');
 });
