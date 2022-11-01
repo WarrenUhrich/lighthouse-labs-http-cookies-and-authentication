@@ -1,0 +1,27 @@
+{
+  "name": "lighthouse-labs-http-cookies-and-authentication",
+  "version": "1.0.0",
+  "description": "Cookie and auth practice with Express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WarrenUhrich/lighthouse-labs-http-cookies-and-authentication.git"
+  },
+  "keywords": [
+    "Express",
+    "Cookies",
+    "Authentication"
+  ],
+  "author": "Warren Uhrich",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WarrenUhrich/lighthouse-labs-http-cookies-and-authentication/issues"
+  },
+  "homepage": "https://github.com/WarrenUhrich/lighthouse-labs-http-cookies-and-authentication#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
