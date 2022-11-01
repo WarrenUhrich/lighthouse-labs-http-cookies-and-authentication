@@ -30,6 +30,12 @@ app.listen(PORT, () => {
 ///////////////////////////////////////////////////////////////////
 
 app.get('/', (req, res) => {
+  console.log('cookies:', req.cookies);
+
+  console.log('my-first-cookie:', req.cookies['my-first-cookie']);
+  console.log('mySecondCookie:', req.cookies.mySecondCookie);
+
   res.cookie('my-first-cookie', '123');
+  res.cookie('mySecondCookie', 'Testing, 1 2 3!')
   res.render('index');
 });
