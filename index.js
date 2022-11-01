@@ -1,5 +1,5 @@
 const express = require('express');
-// const cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser');
 
 ///////////////////////////////////////////////////////////////////
 // Set-Up / Configuration
@@ -15,6 +15,7 @@ app.set('view engine', 'ejs');
 ///////////////////////////////////////////////////////////////////
 
 app.use(express.static('public'));
+app.use(cookieParser());
 
 ///////////////////////////////////////////////////////////////////
 // Listener
@@ -29,5 +30,6 @@ app.listen(PORT, () => {
 ///////////////////////////////////////////////////////////////////
 
 app.get('/', (req, res) => {
+  res.cookie('my-first-cookie', '123');
   res.render('index');
 });
