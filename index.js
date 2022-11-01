@@ -71,5 +71,12 @@ app.post('/sign-in', (req, res) => {
 });
 
 app.get('/hidden-page', (req, res) => {
-  res.render('hidden-page');
+  if(req.cookies.userId && users[req.cookies.userId]) {
+    const templateVars = {
+      email: users[req.cookies.userId].email
+    };
+
+    res.render('hidden-page', templateVars);
+  }
+  res.redirect('sign-in');
 });
