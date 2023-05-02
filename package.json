@@ -1,0 +1,32 @@
+{
+  "name": "lighthouse-labs-http-cookies-and-authentication",
+  "version": "1.0.0",
+  "description": "* [ ] What is a Cookie?\r * [ ] Writing and Reading Cookies",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "experiment": "echo 'test123'",
+    "nodemon": "node_modules/nodemon/bin/nodemon.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WarrenUhrich/lighthouse-labs-http-cookies-and-authentication.git"
+  },
+  "keywords": [
+    "Express",
+    "Cookies"
+  ],
+  "author": "Warren Uhrich",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WarrenUhrich/lighthouse-labs-http-cookies-and-authentication/issues"
+  },
+  "homepage": "https://github.com/WarrenUhrich/lighthouse-labs-http-cookies-and-authentication#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.22"
+  }
+}
