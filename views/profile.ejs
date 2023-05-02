@@ -1,0 +1,17 @@
+<%- include('partials/_header.ejs') %>
+
+        <title>Profile: <%= user.name %></title>
+    </head>
+    <body>
+        <h1>Profile: <%= user.name %></h1>
+        <p>Your info:</p>
+        <dl>
+            <dt>ID</dt><dd><%= user.id %></dd>
+            <dt>Name</dt><dd><%= user.name %></dd>
+            <dt>Password</dt><dd><%= user.pass %></dd>
+        </dl>
+        <form method="POST" action="/sign-out">
+            <input type="submit" value="Click here to Sign Out">
+        </form>
+    </body>
+</html>

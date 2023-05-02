@@ -1,0 +1,21 @@
+<%- include('partials/_header.ejs') %>
+
+        <title>Read Cookie Page!</title>
+    </head>
+    <body>
+        <h1>Read Cookie Page!</h1>
+
+        <ul>
+            <% for(const cookie in cookies) { %>
+
+                <li>
+                    <dl>
+                        <dt>Key</dt><dd><%= cookie %></dd>
+                        <dt>Value</dt><dd><%= cookies[cookie] %></dd>
+                    </dl>
+                </li>
+
+            <% } %>
+        </ul>
+    </body>
+</html>
