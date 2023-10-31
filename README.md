@@ -1,6 +1,6 @@
 # Lighthouse Labs | HTTP Cookies and Authentication
 
-[GitHub Repository Branch](https://github.com/WarrenUhrich/lighthouse-labs-http-cookies-and-authentication/tree/2023.10.31-web-flex-day-18september2023) | [Vimeo Video Recording (Coming Soon!)](#coming-soon)
+[GitHub Repository Branch](https://github.com/WarrenUhrich/lighthouse-labs-http-cookies-and-authentication/tree/2023.10.31-web-flex-day-18september2023) | [Vimeo Video Recording](https://vimeo.com/879924577/3c47f5cce9?share=copy)
 
 * [X] Review some HTTP!
 * [X] What is a Cookie? 🍪
