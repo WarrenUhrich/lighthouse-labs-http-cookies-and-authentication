@@ -1,2 +1,5 @@
-# lighthouse-labs-http-cookies-and-authentication
-Lighthouse Labs "HTTP Cookies and Authentication" lecture.
+# Lighthouse Labs | HTTP Cookies and Authentication
+
+* [ ] Review some HTTP!
+* [ ] What is a Cookie? 🍪
+* [ ] Writing and Reading Cookies
