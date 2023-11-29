@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title><%= pageName %></title>
+    </head>
+    <body>
+        <h1><%= pageName %></h1>
+        <ul>
+            <% for(const key in keyValuePairs) { %>
+
+                <li>
+                    <%= key %>:
+                    <%= keyValuePairs[key] %>
+                </li>
+
+            <% } // End of for %>
+        </ul>
+    </body>
+</html>
