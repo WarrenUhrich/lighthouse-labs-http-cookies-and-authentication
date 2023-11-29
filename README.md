@@ -6,6 +6,25 @@
 * [X] What is a Cookie? 🍪
 * [X] Writing and Reading Cookies
 
+## Running this Example
+
+```bash
+git clone git@github.com:WarrenUhrich/lighthouse-labs-http-cookies-and-authentication.git
+cd lighthouse-labs-http-cookies-and-authentication
+git checkout 2023.11.29-web-immersive-b-west-13november2023
+
+npm install
+npm run nodemon
+
+# Visit:
+# * http://localhost:8080/read-cookies
+# * http://localhost:8080/set-cookies
+# * http://localhost:8080/delete-cookies
+# * http://localhost:8080/protected
+# * http://localhost:8080/sign-in
+# * http://localhost:8080/register
+```
+
 ## HTTP is Stateless
 
 Remember, HTTP is not capable of keeping track of clients or client-behaviour on its own. HTTP servers wait for requests, and serve responses without such knowledge of what has transpired previously. If resources loaded soley based on HTTP's limitations, we'd find ourselves having to do things like log in to a website on every page, which would be a confusing and terrible user experience.
